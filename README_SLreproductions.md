@@ -67,11 +67,12 @@ This should generate the coverage files specified based on the tests in the test
 
 ## Use sl-python to run pytest
 
-If you haven't already, install sealights-python-agent with the command:
+### PREREQUISITES
 
-```
-pipenv run pip install sealights-python-agent~=2.2.1
-```
+* The following commands assume that you have a valid sltoken.txt in the project root.
+* If you haven't already, install sealights-python-agent with the command: `pipenv run pip install sealights-python-agent~=2.2.1`
+
+
 
 1. Config:
 
@@ -87,7 +88,7 @@ This step generates a buildSessionId.txt, used in the next step
 pipenv run sl-python scan --tokenfile sltoken.txt --buildsessionidfile buildSessionId.txt 
 ```
 
-3. Run pytest with sl-python, opening the test stage
+3. Open test stage; Run pytest with sl-python
 
 ```
 pipenv run sl-python pytest --teststage 'Unit Tests' --cov-report 'coverage.xml' --junit-xml=junit_xml_test_report.xml --buildsessionidfile buildSessionId.txt --tokenfile sltoken.txt --cache-clear
